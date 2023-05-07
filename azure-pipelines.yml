@@ -7,7 +7,9 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'Default'
+  demands:
+  - agent.name -equals DESKTOP-GM1ET9U
 
 container: mcr.microsoft.com/dotnet/core/sdk:3.0
 
