@@ -11,7 +11,7 @@ pool:
   demands:
   - agent.name -equals DESKTOP-GM1ET9U
 
-container: mcr.microsoft.com/dotnet/core/sdk:3.0
+# container: mcr.microsoft.com/dotnet/core/sdk:3.0
 
 steps:
 - task: DotNetCoreCLI@2
