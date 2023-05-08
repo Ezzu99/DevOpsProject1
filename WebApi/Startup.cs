@@ -24,6 +24,15 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Enable CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyOrigin",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
+
             services.AddControllers();
         }
 
@@ -34,6 +43,9 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Use the CORS policy
+            app.UseCors("AllowAnyOrigin");
 
             app.UseRouting();
 
